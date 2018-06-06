@@ -33,7 +33,7 @@ public class CategoryService {
     }
 
     private void findSubCategories(List<Category> parents,  List<Category> allCategories) {
-        if(parents == null ||parents.size() == 0) {
+        if(parents == null || parents.isEmpty()) {
             return;
         }
         for(Category parent : parents) {
