@@ -17,6 +17,8 @@ public class Category {
     private String name;
     @Column
     private Long parentID;
+    @ManyToMany
+    List<Company> companies;
     @Transient
     private List<Category> subCategories;
 }

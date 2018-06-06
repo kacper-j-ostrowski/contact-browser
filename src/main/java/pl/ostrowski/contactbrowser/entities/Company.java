@@ -20,6 +20,9 @@ public class Company {
     private String regon;
     @OneToOne
     private Contact contact;
-    @OneToMany
+    @ManyToMany
+    @JoinTable(name = "categories_companies",
+        joinColumns = @JoinColumn(name = "company_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id"))
     private List<Category> categories;
 }
