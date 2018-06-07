@@ -23,6 +23,12 @@ public class Category {
     @Lazy
     @Transient
     private List<Category> subCategories;
+    @Lazy
+    @ManyToMany
+    @JoinTable(name = "categories_companies",
+            joinColumns = @JoinColumn(name = "category_id"),
+            inverseJoinColumns = @JoinColumn(name = "company_id"))
+    private List<Company> companies;
 
     @Override
     public String toString() {

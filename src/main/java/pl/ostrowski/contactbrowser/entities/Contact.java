@@ -1,5 +1,6 @@
 package pl.ostrowski.contactbrowser.entities;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,6 +13,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "contacts")
 @NoArgsConstructor
+@AllArgsConstructor
 public class Contact {
     @Id
     private Long id;
