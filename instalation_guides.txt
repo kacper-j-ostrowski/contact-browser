@@ -1,0 +1,4 @@
+Configure database:
+
+run following line in DB:
+create extension UNACCENT;
