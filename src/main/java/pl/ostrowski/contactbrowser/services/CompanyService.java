@@ -49,6 +49,9 @@ public class CompanyService {
     }
 
     public Page<Company> searchCompaniesByString(String searchText, Pageable pageable) {
+        if(searchText == null) {
+            searchText = "";
+        }
         return companyRepository.findByKeyword(searchText, pageable);
     }
 }

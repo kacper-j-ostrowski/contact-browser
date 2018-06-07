@@ -29,9 +29,40 @@ public class CompanyServiceTest {
     }
 
     @Test
-    public void run() {
-        Page<Company> foundCompanies = companyService.searchCompaniesByString("wla", null);
-        assertEquals(1L, foundCompanies.getTotalElements());
+    public void whenNoSearchValue_ReturnAllRecords(){
+        Page<Company> foundCompanies = companyService.searchCompaniesByString("", null);
+        assertEquals(22L, foundCompanies.getTotalElements());
     }
 
+    @Test
+    public void whenKrzysztof_ReturnTwoRecords(){
+        Page<Company> foundCompanies = companyService.searchCompaniesByString("Krzysztof", null);
+        assertEquals(2L, foundCompanies.getTotalElements());
+    }
+
+
+    @Test
+    public void whenRandom_ReturnNothing(){
+        Page<Company> foundCompanies = companyService.searchCompaniesByString("dgfhdsnakjlfg8dyufdgfnruio34y8jkj8U*U(U**#", null);
+        assertEquals(0L, foundCompanies.getTotalElements());
+    }
+
+
+    @Test
+    public void whenNull_ReturnAllRecords(){
+        Page<Company> foundCompanies = companyService.searchCompaniesByString(null, null);
+        assertEquals(22L, foundCompanies.getTotalElements());
+    }
+
+    @Test
+    public void whenStwo_ReturnFifteen() {
+        Page<Company> foundCompanies = companyService.searchCompaniesByString("stwo", null);
+        assertEquals(14L, foundCompanies.getTotalElements());
+    }
+
+    @Test
+    public void whenPartOfKRSOrREGON_ReturnAll() {
+        Page<Company> foundCompanies = companyService.searchCompaniesByString("342", null);
+        assertEquals(22L, foundCompanies.getTotalElements());
+    }
 }
