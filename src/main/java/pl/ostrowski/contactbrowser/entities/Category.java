@@ -3,6 +3,7 @@ package pl.ostrowski.contactbrowser.entities;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.context.annotation.Lazy;
 
 import javax.persistence.*;
 import java.util.List;
@@ -19,11 +20,16 @@ public class Category {
     private String name;
     @Column
     private Long parentID;
-    @ManyToMany
-    @JoinTable(name = "categories_companies",
-            joinColumns = @JoinColumn(name = "category_id"),
-            inverseJoinColumns = @JoinColumn(name = "company_id"))
-    List<Company> companies;
+    @Lazy
     @Transient
     private List<Category> subCategories;
+
+    @Override
+    public String toString() {
+        return "Category{" +
+                "ID=" + ID +
+                ", name='" + name + '\'' +
+                ", parentID=" + parentID +
+                '}';
+    }
 }
