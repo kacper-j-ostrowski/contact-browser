@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import ContactBrowser from './ContactBrowser';
 import registerServiceWorker from './registerServiceWorker';
+import 'typeface-roboto';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<ContactBrowser />, document.getElementById('root'));
 registerServiceWorker();

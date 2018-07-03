@@ -7,8 +7,6 @@ import org.springframework.stereotype.Service;
 import pl.ostrowski.contactbrowser.entities.Company;
 import pl.ostrowski.contactbrowser.repositories.CompanyRepository;
 
-import java.util.Collections;
-import java.util.List;
 import java.util.Optional;
 
 @Service
