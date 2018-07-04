@@ -7,13 +7,15 @@ import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import AppSearch from './AppSearch';
+import Switch from '@material-ui/core/Switch';
+import AccountCircle from '@material-ui/icons/AccountCircle';
 
 const styles = theme => ({
   root: {
     display: 'flex',
   },
   grow: {
-    flex: '1 1 auto',
+    flex: '0.3 1 auto',
   },
   title: {
     marginLeft: 24,
@@ -72,10 +74,12 @@ class AppFrame extends React.Component {
       appBarClassName += ` ${classes.appBarShift}`;
     }
 
+    let auth = false;
+
     return (
       <div className={classes.root}>
         <AppBar className={appBarClassName}>
-          <Toolbar>
+          <Toolbar> 
             <IconButton
               color="inherit"
               aria-label="open drawer"
@@ -83,6 +87,15 @@ class AppFrame extends React.Component {
               className={navIconClassName}
             >
               <MenuIcon />
+            </IconButton>
+                        Wyloguj
+            <Switch aria-label="LoginSwitch" />
+            <IconButton
+                  aria-owns={true ? 'menu-appbar' : null}
+                  aria-haspopup="true"
+                  color="inherit"
+                >
+                  <AccountCircle />
             </IconButton>
             {title !== null && (
               <Typography className={classes.title} variant="title" color="inherit" noWrap>

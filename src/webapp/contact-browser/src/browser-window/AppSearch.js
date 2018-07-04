@@ -119,9 +119,9 @@ const styles = theme => ({
     },
     '& $input': {
       transition: theme.transitions.create('width'),
-      width: 200,
+      width: 300,
       '&:focus': {
-        width: 250,
+        width: 350,
       },
     },
   },
