@@ -3,6 +3,7 @@ package pl.ostrowski.contactbrowser.controllers;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,11 +24,13 @@ public class CategoryRestController {
         this.categoryService = categoryService;
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping(value = "/category", method = RequestMethod.GET)
     public List<Category> categories() {
         return this.categoryService.getAllCategories();
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping(value = "/category_tree", method = RequestMethod.GET)
     public List<Category> categoryTree() {
         return this.categoryService.getTreeOfCategories();
